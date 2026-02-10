@@ -28,57 +28,29 @@ public class Java8MainClass {
         Otherwise it's not. 1-2,A,UYAMaaSA -> A is repeated twice and is within the range of 1-2 -> valid
         10-12,S,ALJLLSSMSS -> S is repeated 4 times and is outside the range of 10-12 -> invalid
         3-6,B,HBBKIBBBlibHi -> B is repeated 5 times and is within the range of 3-6 -> valid*/
-
-        String password = "1-2,A,UYAMaaSA";
-        String password1 = "10-12,S,ALJLLSSMSS";
-        String password2 = "3-6,B,HBBKIBBBlibHi";
-
-        List<String> passwords = Arrays.asList(password, password1, password2);
-
-        for(String str : passwords){
-            String[] parts = str.split(",");
-            String rangePart = parts[0];
-            char characterToFind = parts[1].charAt(0);
-            String passwordStr = parts[2];
-
-            String[] rangeParts = rangePart.split("-");
-            int minRange = Integer.parseInt(rangeParts[0]);
-            int maxRange = Integer.parseInt(rangeParts[1]);
-
-            long frequency = passwordStr.chars().filter(ch -> ch == characterToFind).count();
-
-            if(frequency >= minRange && frequency <= maxRange){
-                System.out.println(str + " -> valid");
-            } else {
-                System.out.println(str + " -> invalid");
-            }
-
-        }
-
-
-
+        Java8StreamStringProgram.readPasswordAndValidateBasedOnCriteria();
     }
 
 
     private static List<Employee> getEmployeeList() {
         return Arrays.asList(
-                new Employee(101,"Md","Badrul","M","SDE","Dev", LocalDate.of(2026,2,11),100000.00),
-                new Employee(102,"Khan","Danish","F","ITE","IT", LocalDate.of(2026,2,11),100000.00),
-                new Employee(103,"Md","Badrul","M","Dev","Development", LocalDate.of(2026,2,11),100000.00),
-                new Employee(104,"Md","Badrul","M","Dev","Development", LocalDate.of(2026,2,11),100000.00),
-                new Employee(105,"Md","Badrul","M","Dev","Development", LocalDate.of(2026,2,11),100000.00),
-                new Employee(106,"Md","Badrul","M","Dev","Development", LocalDate.of(2026,2,11),100000.00),
-                new Employee(107,"Md","Badrul","M","Dev","Development", LocalDate.of(2026,2,11),100000.00),
-                new Employee(108,"Md","Badrul","M","Dev","Development", LocalDate.of(2026,2,11),100000.00),
-                new Employee(109,"Md","Badrul","M","Dev","Development", LocalDate.of(2026,2,11),100000.00),
-                new Employee(110,"Md","Badrul","M","Dev","Development", LocalDate.of(2026,2,11),100000.00),
-                new Employee(111,"Md","Badrul","M","Dev","Development", LocalDate.of(2026,2,11),100000.00),
-                new Employee(112,"Md","Badrul","M","Dev","Development", LocalDate.of(2026,2,11),100000.00),
-                new Employee(113,"Md","Badrul","M","Dev","Development", LocalDate.of(2026,2,11),100000.00),
-                new Employee(114,"Md","Badrul","M","Dev","Development", LocalDate.of(2026,2,11),100000.00),
-                new Employee(115,"Md","Badrul","M","Dev","Development", LocalDate.of(2026,2,11),100000.00),
-                new Employee(116,"Md","Badrul","M","Dev","Development", LocalDate.of(2026,2,11),100000.00),
-                new Employee(117,"Md","Badrul","M","Dev","Development", LocalDate.of(2026,2,11),100000.00)
+                new Employee(101, "Md", "Badrul", "M", "SDE", "Dev", LocalDate.of(2026, 2, 11), 100000.00),
+                new Employee(102, "Khan", "Danish", "F", "ITE", "IT", LocalDate.of(2026, 2, 11), 100000.00),
+                new Employee(103, "Md", "Badrul", "M", "Dev", "Development", LocalDate.of(2026, 2, 11), 100000.00),
+                new Employee(104, "Md", "Badrul", "M", "Dev", "Development", LocalDate.of(2026, 2, 11), 100000.00),
+                new Employee(105, "Md", "Badrul", "M", "Dev", "Development", LocalDate.of(2026, 2, 11), 100000.00),
+                new Employee(106, "Md", "Badrul", "M", "Dev", "Development", LocalDate.of(2026, 2, 11), 100000.00),
+                new Employee(107, "Md", "Badrul", "M", "Dev", "Development", LocalDate.of(2026, 2, 11), 100000.00),
+                new Employee(108, "Md", "Badrul", "M", "Dev", "Development", LocalDate.of(2026, 2, 11), 100000.00),
+                new Employee(109, "Md", "Badrul", "M", "Dev", "Development", LocalDate.of(2026, 2, 11), 100000.00),
+                new Employee(110, "Md", "Badrul", "M", "Dev", "Development", LocalDate.of(2026, 2, 11), 100000.00),
+                new Employee(111, "Md", "Badrul", "M", "Dev", "Development", LocalDate.of(2026, 2, 11), 100000.00),
+                new Employee(112, "Md", "Badrul", "M", "Dev", "Development", LocalDate.of(2026, 2, 11), 100000.00),
+                new Employee(113, "Md", "Badrul", "M", "Dev", "Development", LocalDate.of(2026, 2, 11), 100000.00),
+                new Employee(114, "Md", "Badrul", "M", "Dev", "Development", LocalDate.of(2026, 2, 11), 100000.00),
+                new Employee(115, "Md", "Badrul", "M", "Dev", "Development", LocalDate.of(2026, 2, 11), 100000.00),
+                new Employee(116, "Md", "Badrul", "M", "Dev", "Development", LocalDate.of(2026, 2, 11), 100000.00),
+                new Employee(117, "Md", "Badrul", "M", "Dev", "Development", LocalDate.of(2026, 2, 11), 100000.00)
         );
     }
 }

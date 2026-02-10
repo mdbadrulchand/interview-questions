@@ -158,5 +158,32 @@ public class Java8StreamStringProgram {
         return first + rest;
     }
 
+    public static void readPasswordAndValidateBasedOnCriteria() {
+        //String password = "1-2,A,UYAMaaSA";
+        //String password1 = "10-12,S,ALJLLSSMSS";
+        //String password2 = "3-6,B,HBBKIBBBlibHi";
+
+        List<String> passwords = Arrays.asList("1-2,A,UYAMaaSA", "10-12,S,ALJLLSSMSS", "3-6,B,HBBKIBBBlibHi");
+
+        for(String str : passwords){
+            String[] parts = str.split(",");
+            String rangePart = parts[0];
+            char characterToFind = parts[1].charAt(0);
+            String passwordStr = parts[2];
+
+            String[] rangeParts = rangePart.split("-");
+            int minRange = Integer.parseInt(rangeParts[0]);
+            int maxRange = Integer.parseInt(rangeParts[1]);
+
+            long frequency = passwordStr.chars().filter(ch -> ch == characterToFind).count();
+
+            if(frequency >= minRange && frequency <= maxRange){
+                System.out.println(str + " -> valid");
+            } else {
+                System.out.println(str + " -> invalid");
+            }
+
+        }
+    }
 }
 
